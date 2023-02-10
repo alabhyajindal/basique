@@ -5,12 +5,18 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-app.get('/data', (req, res) => {
-  console.log(req);
+app.get('/main', (req, res) => {
   const converter = new showdown.Converter();
   const text = fs.readFileSync('./posts/sound/index.md', 'utf-8');
   const html = converter.makeHtml(text);
-  res.send(html);
+  const css = fs.readFileSync('./index.css', 'utf-8');
+
+  const src = `${html}
+  <style> 
+    ${css}
+  </style>
+  `;
+  res.send(src);
 });
 
 app.listen(port, () => {
