@@ -1,26 +1,30 @@
 const showdown = require('showdown');
-const express = require('express');
 const fs = require('fs');
 
-const app = express();
-const port = 3000;
+fs.readdir('./source', (err, files) => {
+  files.forEach((file) => {
+    const converter = new showdown.Converter();
+    const text = fs.readFileSync(`./source/${file}/index.md`, 'utf-8');
+    const html = converter.makeHtml(text);
+    const css = fs.readFileSync('./style.css', 'utf-8');
+    const src = `
+    <style> 
+      ${css}
+    </style>
+    ${html}`;
 
-app.get('/:postName', (req, res) => {
-  const converter = new showdown.Converter();
-  const text = fs.readFileSync(
-    `./posts/${req.params.postName}/index.md`,
-    'utf-8'
-  );
-  const html = converter.makeHtml(text);
-  const css = fs.readFileSync('./index.css', 'utf-8');
-  const src = `${html}
-  <style> 
-    ${css}
-  </style>
-  `;
-  res.send(src);
-});
+    const distFilePath = `./dist/${file}`;
+    fs.mkdir(distFilePath, { recursive: true }, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
 
-app.listen(port, () => {
-  console.log(`SSG listening on port ${port}`);
+    fs.closeSync(fs.openSync(`${distFilePath}/index.html`, 'w'));
+    fs.writeFile(`${distFilePath}/index.html`, src, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+  });
 });
