@@ -18,13 +18,12 @@ fs.readdir('./source', (err, files) => {
       if (err) {
         console.error(err);
       }
-    });
-
-    fs.closeSync(fs.openSync(`${distFilePath}/index.html`, 'w'));
-    fs.writeFile(`${distFilePath}/index.html`, src, (err) => {
-      if (err) {
-        console.error(err);
-      }
+      fs.closeSync(fs.openSync(`${distFilePath}/index.html`, 'w'));
+      fs.writeFile(`${distFilePath}/index.html`, src, (err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
     });
   });
 });
