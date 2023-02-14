@@ -21,7 +21,7 @@ function createBlogPages({ files }) {
     const converter = new showdown.Converter();
     const text = fs.readFileSync(`./source/blog/${file}/index.md`, 'utf-8');
     const html = converter.makeHtml(text);
-    const css = fs.readFileSync('./style.css', 'utf-8');
+    const css = fs.readFileSync('./source/style.css', 'utf-8');
     const src = `
     <style> 
       ${css}
@@ -44,6 +44,7 @@ function createBlogPages({ files }) {
 }
 
 fs.readdir('./source/blog', (err, files) => {
+  console.log(files);
   if (err) {
     console.error(err);
   }
