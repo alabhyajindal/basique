@@ -44,7 +44,6 @@ function createBlogPages({ files }) {
 }
 
 fs.readdir('./source/blog', (err, files) => {
-  console.log(files);
   if (err) {
     console.error(err);
   }
