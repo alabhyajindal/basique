@@ -1,5 +1,5 @@
 {
-  "name": "ssg",
+  "name": "zeta-ssg",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,9 @@
   },
   "author": "Alabhya Jindal",
   "license": "ISC",
+  "bin": {
+    "zeta-ssg": "./cli.js"
+  },
   "dependencies": {
     "showdown": "^2.1.0"
   },

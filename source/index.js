@@ -43,10 +43,14 @@ function createBlogPages({ files }) {
   });
 }
 
-fs.readdir('./source/blog', (err, files) => {
-  if (err) {
-    console.error(err);
-  }
-  createHomePage();
-  createBlogPages({ files });
-});
+function main() {
+  fs.readdir('./source/blog', (err, files) => {
+    if (err) {
+      console.error(err);
+    }
+    createHomePage();
+    createBlogPages({ files });
+  });
+}
+
+module.exports = { main };
