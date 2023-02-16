@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-const { main } = require('./source/index');
+const { main } = require('./zeta-ssg/createSource');
 
-console.log(main);
-console.log('Scaffolding your blog...');
 main();
