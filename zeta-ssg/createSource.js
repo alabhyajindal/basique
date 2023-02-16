@@ -3,7 +3,7 @@ const fs = require('fs');
 const PROJECT_NAME = 'my-zeta-app';
 
 function createHomePage() {
-  const src = fs.readFileSync(`${__dirname}/index.html`, 'utf-8');
+  const src = fs.readFileSync(`${__dirname}/sourceFiles/index.html`, 'utf-8');
   const sourcePath = `./${PROJECT_NAME}/source`;
 
   fs.mkdir(`./${PROJECT_NAME}`, { recursive: true }, (err) => {
