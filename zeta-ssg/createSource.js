@@ -36,11 +36,12 @@ function copyDirectory(source, destination) {
 
 function main() {
   const PROJECT_NAME = 'my-zeta-app';
+  const sourceFilesPath = `${__dirname}/sourceFiles`;
   const projectPath = `${process.cwd()}/${PROJECT_NAME}`;
 
   console.log('Creating your project...');
   createProjectFolder(projectPath);
-  copyDirectory(`${__dirname}/sourceFiles`, projectPath);
+  copyDirectory(sourceFilesPath, `${projectPath}/source`);
   console.log('Project created!');
 }
 
