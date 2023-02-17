@@ -41,12 +41,12 @@ async function main() {
   const projectName = await rl.question('What is your project named?\n');
   rl.close();
 
-  const sourceFilesPath = `${__dirname}/sourceFiles`;
+  const baseFilesPath = `${__dirname}/base`;
   const projectPath = `${process.cwd()}/${projectName}`;
   console.log(`Creating a new Zeta app in ${projectPath}...`);
 
   createProjectFolder(projectPath);
-  copyDirectory(sourceFilesPath, `${projectPath}`);
+  copyDirectory(baseFilesPath, `${projectPath}`);
   console.log(`Done. Now run:
   
   cd ${projectName}

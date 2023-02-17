@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npm run dev",
-    "build": "npm run build",
-    "start": "npm run start"
+    "dev": "zeta-ssg dev",
+    "build": "zeta-ssg build",
+    "start": "zeta-ssg start"
   },
   "dependencies": {
     "showdown": "^2.1.0"

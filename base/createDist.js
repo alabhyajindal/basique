@@ -2,7 +2,7 @@ const showdown = require('showdown');
 const fs = require('fs');
 
 function createHomePage() {
-  const src = fs.readFileSync('./source/index.html', 'utf-8');
+  const src = fs.readFileSync('./index.html', 'utf-8');
   fs.mkdir('./dist', { recursive: true }, (err) => {
     if (err) {
       console.error(err);
@@ -19,9 +19,9 @@ function createHomePage() {
 function createBlogPages({ files }) {
   files.forEach((file) => {
     const converter = new showdown.Converter();
-    const text = fs.readFileSync(`./source/blog/${file}/index.md`, 'utf-8');
+    const text = fs.readFileSync(`./blog/${file}/index.md`, 'utf-8');
     const html = converter.makeHtml(text);
-    const css = fs.readFileSync('./source/style.css', 'utf-8');
+    const css = fs.readFileSync('./style.css', 'utf-8');
     const src = `
     <style> 
       ${css}
@@ -44,7 +44,7 @@ function createBlogPages({ files }) {
 }
 
 function main() {
-  fs.readdir('./source/blog', (err, files) => {
+  fs.readdir('./blog', (err, files) => {
     if (err) {
       console.error(err);
     }
