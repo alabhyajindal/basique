@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const readline = require('readline/promises');
+const { stdin, stdout } = require('process');
 
 function createProjectFolder(projectPath) {
   fs.mkdirSync(projectPath);
@@ -34,15 +36,23 @@ function copyDirectory(source, destination) {
   }
 }
 
-function main() {
-  const PROJECT_NAME = 'my-zeta-app';
-  const sourceFilesPath = `${__dirname}/sourceFiles`;
-  const projectPath = `${process.cwd()}/${PROJECT_NAME}`;
+async function main() {
+  const rl = readline.createInterface({ input: stdin, output: stdout });
+  const projectName = await rl.question('What is your project named?\n');
+  rl.close();
 
-  console.log('Creating your project...');
+  const sourceFilesPath = `${__dirname}/sourceFiles`;
+  const projectPath = `${process.cwd()}/${projectName}`;
+  console.log(`Creating a new Zeta app in ${projectPath}...`);
+
   createProjectFolder(projectPath);
-  copyDirectory(sourceFilesPath, `${projectPath}/source`);
-  console.log('Project created!');
+  copyDirectory(sourceFilesPath, `${projectPath}`);
+  console.log(`Done. Now run:
+  
+  cd ${projectName}
+  npm install
+  npm run dev
+  `);
 }
 
 module.exports = { main };

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "start": "npm run start"
+  },
+  "dependencies": {
+    "showdown": "^2.1.0"
+  }
+}
