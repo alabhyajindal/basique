@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node ./source/index.js",
-    "dev": "nodemon ./source/index.js",
+    "build": "",
+    "dev": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alabhya Jindal",
@@ -15,8 +15,5 @@
   },
   "dependencies": {
     "showdown": "^2.1.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
   }
 }

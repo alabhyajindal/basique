@@ -38,17 +38,18 @@ function copyDirectory(source, destination) {
 
 async function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });
-  const projectName = await rl.question('What is your project named?\n');
+  const projectName = await rl.question(`What is your project named? `);
   rl.close();
 
-  const baseFilesPath = `${__dirname}/base`;
+  const templateFilesPath = path.join(`${__dirname}`, '..', '..', 'template');
+  console.log(templateFilesPath);
   const projectPath = `${process.cwd()}/${projectName}`;
   console.log(`Creating a new Zeta app in ${projectPath}...`);
 
   createProjectFolder(projectPath);
-  copyDirectory(baseFilesPath, `${projectPath}`);
+  copyDirectory(templateFilesPath, `${projectPath}`);
   console.log(`Done. Now run:
-  
+
   cd ${projectName}
   npm install
   npm run dev
