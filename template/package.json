@@ -1,11 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "dev": "zeta-ssg dev",
-    "build": "zeta-ssg build",
-    "start": "zeta-ssg start"
+    "dev": "",
+    "build": "zeta build",
+    "start": ""
   },
   "dependencies": {
+    "zeta": "latest",
     "showdown": "^2.1.0"
   }
 }
