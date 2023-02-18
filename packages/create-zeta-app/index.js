@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline/promises');
@@ -56,4 +57,4 @@ async function main() {
   `);
 }
 
-module.exports = { main };
+main();
