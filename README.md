@@ -1,3 +1,3 @@
-### Static site generator
+### Basique
 
-Simple SSG created using Node.js
+Basique is a static site generator with a focus on simplicity.
