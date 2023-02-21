@@ -1,17 +1,11 @@
 {
   "name": "basique-project",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "build": "",
     "dev": "",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Alabhya Jindal",
-  "license": "ISC",
-  "bin": {
-    "basique-project": "./cli.js"
   },
   "dependencies": {
     "showdown": "^2.1.0"
