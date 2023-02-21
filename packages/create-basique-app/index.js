@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const readline = require('readline/promises');
+const readline = require('readline');
 const { stdin, stdout } = require('process');
 
 function createProjectFolder(projectPath) {
@@ -37,24 +37,24 @@ function copyDirectory(source, destination) {
   }
 }
 
-async function main() {
+function main() {
   const rl = readline.createInterface({ input: stdin, output: stdout });
-  const projectName = await rl.question(`What is your project named? `);
-  rl.close();
+  rl.question(`What is your project named? `, (projectName) => {
+    const templateFilesPath = path.join(`${__dirname}`, '..', '..', 'template');
+    console.log(templateFilesPath);
+    const projectPath = `${process.cwd()}/${projectName}`;
+    console.log(`Creating a new Basique app in ${projectPath}...`);
 
-  const templateFilesPath = path.join(`${__dirname}`, '..', '..', 'template');
-  console.log(templateFilesPath);
-  const projectPath = `${process.cwd()}/${projectName}`;
-  console.log(`Creating a new Basique app in ${projectPath}...`);
+    createProjectFolder(projectPath);
+    copyDirectory(templateFilesPath, `${projectPath}`);
+    console.log(`Done. Now run:
 
-  createProjectFolder(projectPath);
-  copyDirectory(templateFilesPath, `${projectPath}`);
-  console.log(`Done. Now run:
-
-  cd ${projectName}
-  npm install
-  npm run dev
-  `);
+    cd ${projectName}
+    npm install
+    npm run dev
+    `);
+    rl.close();
+  });
 }
 
 main();
