@@ -45,7 +45,7 @@ async function main() {
   const templateFilesPath = path.join(`${__dirname}`, '..', '..', 'template');
   console.log(templateFilesPath);
   const projectPath = `${process.cwd()}/${projectName}`;
-  console.log(`Creating a new Zeta app in ${projectPath}...`);
+  console.log(`Creating a new Basique app in ${projectPath}...`);
 
   createProjectFolder(projectPath);
   copyDirectory(templateFilesPath, `${projectPath}`);

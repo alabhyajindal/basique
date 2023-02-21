@@ -1,6 +1,6 @@
 {
-  "name": "zeta-ssg",
-  "version": "1.0.0",
+  "name": "basique-project",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "Alabhya Jindal",
   "license": "ISC",
   "bin": {
-    "zeta-ssg": "./cli.js"
+    "basique-project": "./cli.js"
   },
   "dependencies": {
     "showdown": "^2.1.0"

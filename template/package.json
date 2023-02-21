@@ -2,11 +2,11 @@
   "private": true,
   "scripts": {
     "dev": "",
-    "build": "zeta build",
+    "build": "basique build",
     "start": ""
   },
   "dependencies": {
-    "zeta": "latest",
+    "basique": "latest",
     "showdown": "^2.1.0"
   }
 }
